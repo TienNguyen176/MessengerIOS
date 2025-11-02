@@ -19,7 +19,6 @@
 		8488C30F2EB75CC9003064D0 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8488C3112EB75CC9003064D0 /* Chat.storyboard */; };
 		8488C3122EB75CD0003064D0 /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8488C3142EB75CD0003064D0 /* Friend.storyboard */; };
 		8488C3152EB75CD4003064D0 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8488C3172EB75CD4003064D0 /* Profile.storyboard */; };
-		8488C3192EB75E42003064D0 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8488C3182EB75E42003064D0 /* Auth.storyboard */; };
 		8488C31C2EB75EAD003064D0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C31B2EB75EAD003064D0 /* LoginViewController.swift */; };
 		8488C3222EB75F2F003064D0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C3212EB75F2F003064D0 /* RegisterViewController.swift */; };
 		8488C3282EB75FF9003064D0 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C3272EB75FF9003064D0 /* ChatsViewController.swift */; };
@@ -29,6 +28,9 @@
 		8488C3302EB760DD003064D0 /* FriendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C32F2EB760DD003064D0 /* FriendListViewController.swift */; };
 		8488C3322EB7610E003064D0 /* FriendRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C3312EB7610E003064D0 /* FriendRequestsViewController.swift */; };
 		8488C3342EB7616B003064D0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C3332EB7616B003064D0 /* ProfileViewController.swift */; };
+		8488C3362EB76ED4003064D0 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8488C3382EB76ED4003064D0 /* Auth.storyboard */; };
+		8488C33B2EB775D3003064D0 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C33A2EB775D3003064D0 /* UITextField.swift */; };
+		8488C33D2EB77E6B003064D0 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C33C2EB77E6B003064D0 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +67,6 @@
 		8488C3102EB75CC9003064D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		8488C3132EB75CD0003064D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Friend.storyboard; sourceTree = "<group>"; };
 		8488C3162EB75CD4003064D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		8488C3182EB75E42003064D0 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		8488C31B2EB75EAD003064D0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8488C3212EB75F2F003064D0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8488C3272EB75FF9003064D0 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +76,9 @@
 		8488C32F2EB760DD003064D0 /* FriendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewController.swift; sourceTree = "<group>"; };
 		8488C3312EB7610E003064D0 /* FriendRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewController.swift; sourceTree = "<group>"; };
 		8488C3332EB7616B003064D0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		8488C3372EB76ED4003064D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
+		8488C33A2EB775D3003064D0 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		8488C33C2EB77E6B003064D0 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				8488C3072EB75874003064D0 /* Services */,
 				8488C3062EB757DB003064D0 /* Models */,
 				8488C3052EB757CE003064D0 /* Controllers */,
+				8488C3392EB7759F003064D0 /* Extensions */,
 				8488C3042EB757A9003064D0 /* System files */,
 			);
 			path = MessengerIOS;
@@ -194,7 +199,7 @@
 				8488C3112EB75CC9003064D0 /* Chat.storyboard */,
 				8488C3142EB75CD0003064D0 /* Friend.storyboard */,
 				8488C3172EB75CD4003064D0 /* Profile.storyboard */,
-				8488C3182EB75E42003064D0 /* Auth.storyboard */,
+				8488C3382EB76ED4003064D0 /* Auth.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -252,6 +257,15 @@
 			children = (
 			);
 			name = Control;
+			sourceTree = "<group>";
+		};
+		8488C3392EB7759F003064D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8488C33A2EB775D3003064D0 /* UITextField.swift */,
+				8488C33C2EB77E6B003064D0 /* UIButton.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,7 +378,7 @@
 				8488C30F2EB75CC9003064D0 /* Chat.storyboard in Resources */,
 				8488C2DC2EB75644003064D0 /* Main.storyboard in Resources */,
 				8488C3122EB75CD0003064D0 /* Friend.storyboard in Resources */,
-				8488C3192EB75E42003064D0 /* Auth.storyboard in Resources */,
+				8488C3362EB76ED4003064D0 /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,11 +408,13 @@
 				8488C32E2EB760B1003064D0 /* FriendsViewController.swift in Sources */,
 				8488C31C2EB75EAD003064D0 /* LoginViewController.swift in Sources */,
 				8488C3222EB75F2F003064D0 /* RegisterViewController.swift in Sources */,
+				8488C33B2EB775D3003064D0 /* UITextField.swift in Sources */,
 				8488C2D92EB75644003064D0 /* TabBarViewController.swift in Sources */,
 				8488C3342EB7616B003064D0 /* ProfileViewController.swift in Sources */,
 				8488C2D52EB75644003064D0 /* AppDelegate.swift in Sources */,
 				8488C3282EB75FF9003064D0 /* ChatsViewController.swift in Sources */,
 				8488C32A2EB76032003064D0 /* PrivateChatsViewController.swift in Sources */,
+				8488C33D2EB77E6B003064D0 /* UIButton.swift in Sources */,
 				8488C3322EB7610E003064D0 /* FriendRequestsViewController.swift in Sources */,
 				8488C2D72EB75644003064D0 /* SceneDelegate.swift in Sources */,
 			);
@@ -475,6 +491,14 @@
 				8488C3162EB75CD4003064D0 /* Base */,
 			);
 			name = Profile.storyboard;
+			sourceTree = "<group>";
+		};
+		8488C3382EB76ED4003064D0 /* Auth.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8488C3372EB76ED4003064D0 /* Base */,
+			);
+			name = Auth.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -604,8 +628,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MessengerIOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -631,8 +656,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MessengerIOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (

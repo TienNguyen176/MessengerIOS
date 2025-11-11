@@ -105,7 +105,12 @@ extension UIButton {
     private func setSocialStyle(for platform: SocialPlatform, title: String, icon: UIImage?) {
         var config = UIButton.Configuration.filled()
         config.title = title
-        config.image = icon?.withRenderingMode(.alwaysOriginal)
+        if let icon = icon {
+            let resizedIcon = UIGraphicsImageRenderer(size: CGSize(width: 24, height: 24)).image { _ in
+                icon.draw(in: CGRect(origin: .zero, size: CGSize(width: 24, height: 24)))
+            }
+            config.image = resizedIcon.withRenderingMode(.alwaysOriginal)
+        }
         config.imagePlacement = .leading
         config.imagePadding = 10
         config.cornerStyle = .medium

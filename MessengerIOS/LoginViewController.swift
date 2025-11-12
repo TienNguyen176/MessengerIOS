@@ -66,7 +66,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonClick(_ sender: UIButton) {
-        print("Clicked button Login")
+        //print("Clicked button Login")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController")
+        mainVC.modalPresentationStyle = .fullScreen
+        present(mainVC, animated: true)
     }
     
     @IBAction func loginGoogleButtonClick(_ sender: UIButton) {

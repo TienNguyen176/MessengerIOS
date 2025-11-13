@@ -41,6 +41,8 @@
 		84E40AD82EC3046B00DCE00A /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E40AD72EC3046B00DCE00A /* Group.storyboard */; };
 		CE6E494F2EC4846D00002A82 /* AuthServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6E494E2EC4846D00002A82 /* AuthServices.swift */; };
 		CE6E49562EC5291A00002A82 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = CE6E49552EC5291A00002A82 /* GoogleSignIn */; };
+		CEAB64F92EC5A32600010BB3 /* AddFriend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEAB64F82EC5A32600010BB3 /* AddFriend.storyboard */; };
+		CEAB64FB2EC5A4DC00010BB3 /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB64FA2EC5A4DC00010BB3 /* AddFriendViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		84A97D222EC445AA000637C3 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		84E40AD72EC3046B00DCE00A /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
 		CE6E494E2EC4846D00002A82 /* AuthServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServices.swift; sourceTree = "<group>"; };
+		CEAB64F82EC5A32600010BB3 /* AddFriend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFriend.storyboard; sourceTree = "<group>"; };
+		CEAB64FA2EC5A4DC00010BB3 /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +228,7 @@
 				8488C3172EB75CD4003064D0 /* Profile.storyboard */,
 				8488C3382EB76ED4003064D0 /* Auth.storyboard */,
 				84E40AD72EC3046B00DCE00A /* Group.storyboard */,
+				CEAB64F82EC5A32600010BB3 /* AddFriend.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -264,6 +269,7 @@
 				8488C32D2EB760B1003064D0 /* FriendsViewController.swift */,
 				8488C32F2EB760DD003064D0 /* FriendListViewController.swift */,
 				8488C3312EB7610E003064D0 /* FriendRequestsViewController.swift */,
+				CEAB64FA2EC5A4DC00010BB3 /* AddFriendViewController.swift */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -410,6 +416,7 @@
 			files = (
 				8488C3152EB75CD4003064D0 /* Profile.storyboard in Resources */,
 				8460812B2EBC881E00202EFA /* GoogleService-Info.plist in Resources */,
+				CEAB64F92EC5A32600010BB3 /* AddFriend.storyboard in Resources */,
 				8488C2E12EB75645003064D0 /* LaunchScreen.storyboard in Resources */,
 				8488C2DE2EB75645003064D0 /* Assets.xcassets in Resources */,
 				8488C30F2EB75CC9003064D0 /* Chat.storyboard in Resources */,
@@ -449,6 +456,7 @@
 				8488C33B2EB775D3003064D0 /* UITextField.swift in Sources */,
 				8488C2D92EB75644003064D0 /* TabBarViewController.swift in Sources */,
 				8488C3342EB7616B003064D0 /* ProfileViewController.swift in Sources */,
+				CEAB64FB2EC5A4DC00010BB3 /* AddFriendViewController.swift in Sources */,
 				8488C2D52EB75644003064D0 /* AppDelegate.swift in Sources */,
 				8488C3282EB75FF9003064D0 /* ChatsViewController.swift in Sources */,
 				84A97D232EC445AA000637C3 /* EditProfileViewController.swift in Sources */,

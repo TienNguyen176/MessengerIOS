@@ -14,6 +14,23 @@ struct UserModel: Codable {
     let allowMessagesFrom: String
     let status: StatusModel
     let friendRequests: FriendRequestModel
+    
+    // init rút gọn chỉ dùng trong chat list
+    init(userId: String, userName: String, avatarUrl: String?, statusId: String?) {
+        self.userId = userId
+        self.userName = userName
+        self.avatarUrl = avatarUrl ?? ""
+        self.email = ""
+        self.bio = ""
+        self.genderId = ""
+        self.dob = ""
+        self.chatIds = nil
+        self.friends = nil
+        self.blockedUsers = nil
+        self.allowMessagesFrom = "type_03"
+        self.status = StatusModel(statusId: statusId ?? "status_02", lastSeen: 0)
+        self.friendRequests = FriendRequestModel(sentRequests: nil, receivedRequests: nil)
+    }
 }
 
 struct StatusModel: Codable {

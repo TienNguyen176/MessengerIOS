@@ -8,6 +8,7 @@ struct SimpleUser {
     let userId: String
     let userName: String
     let avatarUrl: String
+    let allowMessagesFrom: String?
 }
 
 struct ChatUserInfo {
@@ -65,66 +66,16 @@ class PrivateChatsViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - Fetch Chats
     private func fetchPrivateChats() {
         guard let userId = currentUserId else { return }
-        
-        ref.child("users").child(userId).child("chat_ids").observeSingleEvent(of: .value) { snapshot in
-            guard let chatIdsDict = snapshot.value as? [String: Bool] else { return }
-            
-            let group = DispatchGroup()
-            
-            for chatId in chatIdsDict.keys {
-                group.enter()
-                self.ref.child("chats").child(chatId).observeSingleEvent(of: .value) { chatSnap in
-                    defer { group.leave() }
-                    
-                    guard let chatData = chatSnap.value as? [String: Any],
-                          let typeId = chatData["type_id"] as? String,
-                          typeId == "type_05",
-                          let updatedAt = chatData["updatedAt"] as? TimeInterval,
-                          let lastMessage = chatData["lastMessage"] as? String,
-                          let userDict = chatData["users"] as? [String: Bool] else { return }
-                    
-                    let otherUserId = userDict.keys.first { $0 != userId } ?? ""
-                    
-                    if let _ = self.usersCache[otherUserId] {
-                        let chat = ChatModel(chatId: chatId,
-                                             typeId: typeId,
-                                             lastMessage: lastMessage,
-                                             updatedAt: updatedAt,
-                                             userIds: Array(userDict.keys))
-                        self.chats.append(chat)
-                    } else {
-                        self.ref.child("users").child(otherUserId).observeSingleEvent(of: .value) { userSnap in
-                            if let userData = userSnap.value as? [String: Any] {
-                                let user = ChatUserInfo(
-                                    userId: otherUserId,
-                                    userName: userData["user_name"] as? String ?? "Unknown",
-                                    avatarUrl: userData["avatarUrl"] as? String ?? "",
-                                    statusId: (userData["status"] as? [String: Any])?["status_id"] as? String ?? "status_02"
-                                )
-                                self.usersCache[otherUserId] = user
-                                
-                                let chat = ChatModel(chatId: chatId,
-                                                     typeId: typeId,
-                                                     lastMessage: lastMessage,
-                                                     updatedAt: updatedAt,
-                                                     userIds: Array(userDict.keys))
-                                self.chats.append(chat)
-                            }
-                        }
-                    }
-                }
-            }
-            
-            group.notify(queue: .main) {
-                self.tableView.reloadData()
-            }
+        ChatService.shared.fetchPrivateChats(for: userId) { chats in
+            self.chats = chats
+            self.tableView.reloadData()
         }
     }
     
     // MARK: - Search Users
     private func searchUsers(with text: String) {
         searchResults.removeAll()
-        ref.child("users").observeSingleEvent(of: .value) { snapshot in
+        ref.child("users").observeSingleEvent(of: .value, with: { snapshot in
             guard let allUsers = snapshot.value as? [String: Any] else { return }
             for (userId, value) in allUsers {
                 guard userId != self.currentUserId else { continue }
@@ -134,13 +85,14 @@ class PrivateChatsViewController: UIViewController, UITableViewDelegate, UITable
                     let user = SimpleUser(
                         userId: userId,
                         userName: userName,
-                        avatarUrl: userData["avatarUrl"] as? String ?? ""
+                        avatarUrl: userData["avatarUrl"] as? String ?? "",
+                        allowMessagesFrom: nil
                     )
                     self.searchResults.append(user)
                 }
             }
             DispatchQueue.main.async { self.tableView.reloadData() }
-        }
+        })
     }
     
     // MARK: - TableView
@@ -193,13 +145,38 @@ class PrivateChatsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        let storyboard = UIStoryboard(name: "Chat", bundle: nil)
+        guard let chatVC = storyboard.instantiateViewController(withIdentifier: "ChatsViewController") as? ChatsViewController else { return }
+
         if isSearching {
             let user = searchResults[indexPath.row]
-            print("Selected user: \(user.userId)")
+            chatVC.chatTypeId = "type_05" // private chat
+            chatVC.otherUser = SimpleUser(userId: user.userId, userName: user.userName, avatarUrl: user.avatarUrl, allowMessagesFrom: nil)
+
+            // Tìm xem user này có chat hiện tại chưa
+            if let existingChat = chats.first(where: { $0.userIds.contains(user.userId) && $0.userIds.contains(currentUserId ?? "") }) {
+                chatVC.chatId = existingChat.chatId
+            } else {
+                chatVC.chatId = nil // sẽ tạo khi gửi message lần đầu
+            }
+
         } else {
             let chat = chats[indexPath.row]
-            print("Selected chat id: \(chat.chatId)")
+            chatVC.chatTypeId = chat.typeId
+            chatVC.chatId = chat.chatId
+
+            if chat.typeId == "type_05" {
+                let otherUserId = chat.userIds.first { $0 != currentUserId } ?? ""
+                if let userInfo = usersCache[otherUserId] {
+                    chatVC.otherUser = SimpleUser(userId: userInfo.userId, userName: userInfo.userName, avatarUrl: userInfo.avatarUrl, allowMessagesFrom: nil)
+                }
+            } else if chat.typeId == "type_06" {
+                chatVC.groupName = chat.groupInfo?.groupName
+            }
         }
+
+        navigationController?.pushViewController(chatVC, animated: true)
     }
     
     // MARK: - Status color

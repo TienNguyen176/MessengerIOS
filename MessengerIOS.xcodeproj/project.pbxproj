@@ -44,6 +44,8 @@
 		8492C95C2EC5615B00DADA53 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492C95B2EC5615B00DADA53 /* MessageModel.swift */; };
 		8492C95E2EC5671F00DADA53 /* MyMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492C95D2EC5671F00DADA53 /* MyMessageTableViewCell.swift */; };
 		8492C9602EC5674000DADA53 /* OtherMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492C95F2EC5674000DADA53 /* OtherMessageTableViewCell.swift */; };
+		8492C9642EC5987300DADA53 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492C9632EC5987300DADA53 /* GroupTableViewCell.swift */; };
+		8492C9662EC59B3000DADA53 /* AddGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8492C9652EC59B3000DADA53 /* AddGroupViewController.swift */; };
 		84A97D212EC43C5F000637C3 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A97D202EC43C5F000637C3 /* UserModel.swift */; };
 		84A97D232EC445AA000637C3 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A97D222EC445AA000637C3 /* EditProfileViewController.swift */; };
 		84E40AD82EC3046B00DCE00A /* Group.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E40AD72EC3046B00DCE00A /* Group.storyboard */; };
@@ -107,6 +109,8 @@
 		8492C95B2EC5615B00DADA53 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		8492C95D2EC5671F00DADA53 /* MyMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMessageTableViewCell.swift; sourceTree = "<group>"; };
 		8492C95F2EC5674000DADA53 /* OtherMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherMessageTableViewCell.swift; sourceTree = "<group>"; };
+		8492C9632EC5987300DADA53 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		8492C9652EC59B3000DADA53 /* AddGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupViewController.swift; sourceTree = "<group>"; };
 		84A97D202EC43C5F000637C3 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		84A97D222EC445AA000637C3 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		84E40AD72EC3046B00DCE00A /* Group.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Group.storyboard; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 				8488C3272EB75FF9003064D0 /* ChatsViewController.swift */,
 				8488C3292EB76032003064D0 /* PrivateChatsViewController.swift */,
 				8488C32B2EB7607D003064D0 /* GroupChatsViewController.swift */,
+				8492C9652EC59B3000DADA53 /* AddGroupViewController.swift */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 				8492C9572EC5482700DADA53 /* ChatTableViewCell.swift */,
 				8492C95D2EC5671F00DADA53 /* MyMessageTableViewCell.swift */,
 				8492C95F2EC5674000DADA53 /* OtherMessageTableViewCell.swift */,
+				8492C9632EC5987300DADA53 /* GroupTableViewCell.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 				8492C95E2EC5671F00DADA53 /* MyMessageTableViewCell.swift in Sources */,
 				8492C9582EC5482700DADA53 /* ChatTableViewCell.swift in Sources */,
 				8492C9542EC543D400DADA53 /* MessageServices.swift in Sources */,
+				8492C9662EC59B3000DADA53 /* AddGroupViewController.swift in Sources */,
 				8492C9522EC543C200DADA53 /* ChatServices.swift in Sources */,
 				8488C33B2EB775D3003064D0 /* UITextField.swift in Sources */,
 				8488C2D92EB75644003064D0 /* TabBarViewController.swift in Sources */,
@@ -483,6 +490,7 @@
 				84A97D232EC445AA000637C3 /* EditProfileViewController.swift in Sources */,
 				84A97D212EC43C5F000637C3 /* UserModel.swift in Sources */,
 				8492C9562EC543EE00DADA53 /* GroupChatServices.swift in Sources */,
+				8492C9642EC5987300DADA53 /* GroupTableViewCell.swift in Sources */,
 				8488C32A2EB76032003064D0 /* PrivateChatsViewController.swift in Sources */,
 				8488C33D2EB77E6B003064D0 /* UIButton.swift in Sources */,
 				8492C95C2EC5615B00DADA53 /* MessageModel.swift in Sources */,

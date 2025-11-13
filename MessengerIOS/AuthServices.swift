@@ -81,9 +81,11 @@ class AuthService {
     ) {
         auth.signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
-                completion(.failure(error))
-                return
-            }
+                    print("🔥 FIREBASE LOGIN ERROR:", error)
+                    print("🔥 ERROR CODE:", (error as NSError).code)
+                    completion(.failure(error))
+                    return
+                }
             
             guard let user = authResult?.user else {
                 completion(.failure(NSError(domain: "AuthService", code: -1,

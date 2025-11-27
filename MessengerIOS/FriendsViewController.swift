@@ -36,7 +36,11 @@ class FriendsViewController: UIViewController {
 
     @objc private func addFriendTapped() {
         print("Nhấn thêm bạn")
-        // Có thể mở màn hình SearchFriend ở đây
+        
+        let storyboard = UIStoryboard(name: "Friend", bundle: nil)
+        if let addFriendVC = storyboard.instantiateViewController(withIdentifier: "AddFriendViewController") as? AddFriendViewController {
+            navigationController?.pushViewController(addFriendVC, animated: true)
+        }
     }
 
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {

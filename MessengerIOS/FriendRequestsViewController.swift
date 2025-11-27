@@ -17,6 +17,8 @@ class FriendRequestsViewController: UIViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "FriendRequestCell")
 
         loadFriendRequests()
     }

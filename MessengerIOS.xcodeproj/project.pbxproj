@@ -12,6 +12,7 @@
 		8460812E2EBC896E00202EFA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 8460812D2EBC896E00202EFA /* FirebaseAnalytics */; };
 		846081302EBC896E00202EFA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8460812F2EBC896E00202EFA /* FirebaseAuth */; };
 		846081322EBC896E00202EFA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 846081312EBC896E00202EFA /* FirebaseDatabase */; };
+		847F1EF32ED8220C00903EEF /* AddFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1EF22ED8220C00903EEF /* AddFriendViewController.swift */; };
 		8488C2D52EB75644003064D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C2D42EB75644003064D0 /* AppDelegate.swift */; };
 		8488C2D72EB75644003064D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C2D62EB75644003064D0 /* SceneDelegate.swift */; };
 		8488C2D92EB75644003064D0 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8488C2D82EB75644003064D0 /* TabBarViewController.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		84489B572EC43B310025A8AF /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		8460812A2EBC881E00202EFA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		847F1EF22ED8220C00903EEF /* AddFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendViewController.swift; sourceTree = "<group>"; };
 		8488C2D12EB75644003064D0 /* MessengerIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8488C2D42EB75644003064D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8488C2D62EB75644003064D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				8488C32D2EB760B1003064D0 /* FriendsViewController.swift */,
 				8488C32F2EB760DD003064D0 /* FriendListViewController.swift */,
 				8488C3312EB7610E003064D0 /* FriendRequestsViewController.swift */,
+				847F1EF22ED8220C00903EEF /* AddFriendViewController.swift */,
 			);
 			name = Friend;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				8488C2D52EB75644003064D0 /* AppDelegate.swift in Sources */,
 				8488C3282EB75FF9003064D0 /* ChatsViewController.swift in Sources */,
 				84A97D232EC445AA000637C3 /* EditProfileViewController.swift in Sources */,
+				847F1EF32ED8220C00903EEF /* AddFriendViewController.swift in Sources */,
 				84A97D212EC43C5F000637C3 /* UserModel.swift in Sources */,
 				8492C9562EC543EE00DADA53 /* GroupChatServices.swift in Sources */,
 				8492C9642EC5987300DADA53 /* GroupTableViewCell.swift in Sources */,

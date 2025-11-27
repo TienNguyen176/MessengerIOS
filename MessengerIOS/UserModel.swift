@@ -6,14 +6,14 @@ struct UserModel: Codable {
     let email: String
     let avatarUrl: String
     let bio: String
-    let genderId: String
+    let genderId: String?
     let dob: String
     let chatIds: [String: Bool]?
     let friends: [String: Bool]?
     let blockedUsers: [String: Bool]?
     let allowMessagesFrom: String
     let status: StatusModel
-    let friendRequests: FriendRequestModel
+    let friendRequests: FriendRequestModel?
     
     // init rút gọn chỉ dùng trong chat list
     init(userId: String, userName: String, avatarUrl: String?, statusId: String?) {
@@ -34,8 +34,8 @@ struct UserModel: Codable {
 }
 
 struct StatusModel: Codable {
-    let statusId: String
-    let lastSeen: Int64
+    let statusId: String?
+    let lastSeen: Int64?
 }
 
 struct FriendRequestModel: Codable {
@@ -44,12 +44,12 @@ struct FriendRequestModel: Codable {
 }
 
 struct SentRequest: Codable {
-    let sentAt: Int64
-    let statusId: String
+    let sentAt: TimeInterval?
+    let statusId: String?
 }
 
 struct ReceivedRequest: Codable {
-    let sentBy: String
-    let sentAt: Int64
-    let statusId: String
+    let sentBy: String?
+    let sentAt: TimeInterval?
+    let statusId: String?
 }

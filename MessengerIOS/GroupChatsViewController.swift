@@ -15,6 +15,8 @@ class GroupChatsViewController: UIViewController {
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         
+        tableView.register(GroupTableViewCell.self, forCellReuseIdentifier: GroupTableViewCell.identifier)
+        
         setupNavBar()
         
         loadCurrentUser()
@@ -64,15 +66,11 @@ extension GroupChatsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let chat = groupChats[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupTableViewCell", for: indexPath)
-        
-        // Hiển thị tên group + lastMessage
-        if let groupName = chat.groupInfo?.groupName {
-            cell.textLabel?.text = groupName
-        } else {
-            cell.textLabel?.text = "Nhóm không tên"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GroupTableViewCell.identifier, for: indexPath) as? GroupTableViewCell else {
+            return UITableViewCell()
         }
-        cell.detailTextLabel?.text = chat.lastMessage
+        
+        cell.configure(with: chat)
         
         return cell
     }

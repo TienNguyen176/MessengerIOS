@@ -23,7 +23,7 @@ class ChatsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        tableView.transform = CGAffineTransform(scaleX: 1, y: -1) // đảo chiều table
+        tableView.alwaysBounceVertical = true
 
         setupNavigationBar()
         setupUI()
@@ -108,6 +108,7 @@ class ChatsViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.messages.append(message)
                 self?.tableView.reloadData()
+                self?.adjustTableViewContent()
                 self?.scrollToBottom()
             }
         }
@@ -117,6 +118,20 @@ class ChatsViewController: UIViewController {
         guard messages.count > 0 else { return }
         let indexPath = IndexPath(row: messages.count - 1, section: 0)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+    }
+    
+    // Tin nhan nam cuoi khi it
+    private func adjustTableViewContent() {
+        tableView.layoutIfNeeded()
+        let contentHeight = tableView.contentSize.height
+        let tableHeight = tableView.bounds.height
+
+        if contentHeight < tableHeight {
+            // nếu ít tin nhắn, đẩy content xuống đáy
+            tableView.contentInset.top = tableHeight - contentHeight
+        } else {
+            tableView.contentInset.top = 0
+        }
     }
 }
 
@@ -133,12 +148,10 @@ extension ChatsViewController: UITableViewDelegate, UITableViewDataSource {
         if message.senderId == currentUserId {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyMessageCell", for: indexPath) as! MyMessageTableViewCell
             cell.configure(with: message.text)
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "OtherMessageCell", for: indexPath) as! OtherMessageTableViewCell
             cell.configure(with: message.text)
-            cell.contentView.transform = CGAffineTransform(scaleX: 1, y: -1)
             return cell
         }
     }

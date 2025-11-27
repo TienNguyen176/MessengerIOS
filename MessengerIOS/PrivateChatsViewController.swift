@@ -68,7 +68,29 @@ class PrivateChatsViewController: UIViewController, UITableViewDelegate, UITable
         guard let userId = currentUserId else { return }
         ChatService.shared.fetchPrivateChats(for: userId) { chats in
             self.chats = chats
+            self.fetchAllChatUsers()
             self.tableView.reloadData()
+        }
+    }
+    
+    private func fetchAllChatUsers() {
+        for chat in chats {
+            let otherUserId = chat.userIds.first { $0 != currentUserId } ?? ""
+            if usersCache[otherUserId] != nil { continue }
+
+            ref.child("users").child(otherUserId).observeSingleEvent(of: .value) { snapshot in
+                guard let dict = snapshot.value as? [String: Any] else { return }
+
+                let user = ChatUserInfo(
+                    userId: otherUserId,
+                    userName: dict["user_name"] as? String ?? "Unknown",
+                    avatarUrl: dict["avatarUrl"] as? String ?? "",
+                    statusId: dict["statusId"] as? String ?? ""
+                )
+
+                self.usersCache[otherUserId] = user
+                DispatchQueue.main.async { self.tableView.reloadData() }
+            }
         }
     }
     

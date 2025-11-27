@@ -12,42 +12,39 @@ final class ChatService {
     
     // MARK: - Fetch chats by type
     func fetchChats(for userId: String, type: String, completion: @escaping ([ChatModel]) -> Void) {
-        ref.child("users").child(userId).child("chat_ids").observeSingleEvent(of: .value) { snapshot in
-            guard let chatIdsDict = snapshot.value as? [String: Bool] else {
-                completion([])
-                return
-            }
-            
-            var chats: [ChatModel] = []
-            let group = DispatchGroup()
-            
-            for chatId in chatIdsDict.keys {
-                group.enter()
-                self.ref.child("chats").child(chatId).observeSingleEvent(of: .value) { chatSnap in
-                    defer { group.leave() }
-                    
-                    guard let chatData = chatSnap.value as? [String: Any],
-                          let typeId = chatData["type_id"] as? String,
-                          typeId == type,
-                          let updatedAt = chatData["updatedAt"] as? TimeInterval,
-                          let lastMessage = chatData["lastMessage"] as? String else {
-                        return
-                    }
-                    
-                    let userIds = (chatData["users"] as? [String: Bool])?.map { $0.key } ?? []
-                    let chat = ChatModel(chatId: chatId,
-                                         typeId: typeId,
-                                         lastMessage: lastMessage,
-                                         updatedAt: updatedAt,
-                                         userIds: userIds)
-                    chats.append(chat)
+
+        // Lắng nghe realtime danh sách chatId
+        ref.child("users").child(userId).child("chat_ids")
+            .observe(.value) { snapshot, _ in
+                guard let chatIdsDict = snapshot.value as? [String: Bool] else {
+                    completion([])
+                    return
+                }
+
+                var chatsDict: [String: ChatModel] = [:]
+
+                for chatId in chatIdsDict.keys {
+
+                    // Lắng nghe từng chat realtime
+                    self.ref.child("chats").child(chatId)
+                        .observe(.value) { chatSnap, _ in
+                            guard let dict = chatSnap.value as? [String: Any] else { return }
+
+                            if let chat = ChatModel.fromDict(chatId, dict),
+                               chat.typeId == type {
+
+                                // update dictionary
+                                chatsDict[chatId] = chat
+
+                                // convert dict -> sorted array
+                                let sortedChats = Array(chatsDict.values)
+                                    .sorted { $0.updatedAt > $1.updatedAt }
+
+                                completion(sortedChats)
+                            }
+                        }
                 }
             }
-            
-            group.notify(queue: .main) {
-                completion(chats)
-            }
-        }
     }
     
     // MARK: - Fetch private chats

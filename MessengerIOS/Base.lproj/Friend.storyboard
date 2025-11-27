@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q6x-7A-uBm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q6x-7A-uBm">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,7 +46,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Friends" id="SJa-qc-28k">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="oYj-GW-c3g"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="oYj-GW-c3g">
+                            <connections>
+                                <segue destination="KvF-De-0WH" kind="show" id="Pka-BI-soH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="containerView" destination="qqH-Px-yqu" id="6pN-ic-XYL"/>
@@ -215,10 +218,71 @@
                             <constraint firstItem="UUG-oF-y81" firstAttribute="trailing" secondItem="00g-jG-0ry" secondAttribute="trailing" id="nLr-an-2nX"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="00g-jG-0ry" id="ZUs-eP-XW5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="32I-4o-Yfx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2359.5419847328244" y="-111.26760563380282"/>
+        </scene>
+        <!--Add Friend-->
+        <scene sceneID="Gv9-81-bMd">
+            <objects>
+                <viewController storyboardIdentifier="AddFriendViewController" title="Add Friend" id="KvF-De-0WH" customClass="AddFriendViewController" customModule="MessengerIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hpz-cB-6DG">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email to search" translatesAutoresizingMaskIntoConstraints="NO" id="txt-search-email">
+                                <rect key="frame" x="20" y="123" width="353" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name: " lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-name">
+                                <rect key="frame" x="20" y="187" width="353" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Email: " lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbl-email">
+                                <rect key="frame" x="20" y="217.33333333333334" width="353" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-add-friend">
+                                <rect key="frame" x="20" y="267.66666666666669" width="353" height="30"/>
+                                <state key="normal" title="Add Friend"/>
+                                <connections>
+                                    <action selector="addFriendTapped:" destination="KvF-De-0WH" eventType="touchUpInside" id="MiL-cF-NI3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mcw-EI-twh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="btn-add-friend" firstAttribute="leading" secondItem="mcw-EI-twh" secondAttribute="leading" constant="20" id="cons-add-lead"/>
+                            <constraint firstItem="btn-add-friend" firstAttribute="top" secondItem="lbl-email" secondAttribute="bottom" constant="30" id="cons-add-top"/>
+                            <constraint firstItem="mcw-EI-twh" firstAttribute="trailing" secondItem="btn-add-friend" secondAttribute="trailing" constant="20" id="cons-add-trail"/>
+                            <constraint firstItem="lbl-email" firstAttribute="leading" secondItem="mcw-EI-twh" secondAttribute="leading" constant="20" id="cons-email-lead"/>
+                            <constraint firstItem="lbl-email" firstAttribute="top" secondItem="lbl-name" secondAttribute="bottom" constant="10" id="cons-email-top"/>
+                            <constraint firstItem="mcw-EI-twh" firstAttribute="trailing" secondItem="lbl-email" secondAttribute="trailing" constant="20" id="cons-email-trail"/>
+                            <constraint firstItem="lbl-name" firstAttribute="leading" secondItem="mcw-EI-twh" secondAttribute="leading" constant="20" id="cons-name-lead"/>
+                            <constraint firstItem="lbl-name" firstAttribute="top" secondItem="txt-search-email" secondAttribute="bottom" constant="30" id="cons-name-top"/>
+                            <constraint firstItem="mcw-EI-twh" firstAttribute="trailing" secondItem="lbl-name" secondAttribute="trailing" constant="20" id="cons-name-trail"/>
+                            <constraint firstItem="txt-search-email" firstAttribute="leading" secondItem="mcw-EI-twh" secondAttribute="leading" constant="20" id="cons-search-lead"/>
+                            <constraint firstItem="txt-search-email" firstAttribute="top" secondItem="mcw-EI-twh" secondAttribute="top" constant="20" id="cons-search-top"/>
+                            <constraint firstItem="mcw-EI-twh" firstAttribute="trailing" secondItem="txt-search-email" secondAttribute="trailing" constant="20" id="cons-search-trail"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ONz-1q-g3f"/>
+                    <connections>
+                        <outlet property="addFriendButton" destination="btn-add-friend" id="out-let4"/>
+                        <outlet property="emailLabel" destination="lbl-email" id="out-let3"/>
+                        <outlet property="nameLabel" destination="lbl-name" id="out-let2"/>
+                        <outlet property="searchEmailTextField" destination="txt-search-email" id="out-let1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="in6-rZ-QTo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3216" y="-106"/>
         </scene>
     </scenes>
     <resources>
